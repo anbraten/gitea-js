@@ -6,12 +6,9 @@
 [![GitHub Workflow Status](https://img.shields.io/github/workflow/status/anbraten/gitea-js/Release)](https://github.com/anbraten/gitea-js/actions)
 [![Docs](https://img.shields.io/badge/Docs-up_to_date-brightgreen)](https://anbraten.github.io/gitea-js/)
 
-
-
 Gitea-js is an api client created based on the official [swagger definition](https://gitea.com/swagger.v1.json) from Gitea. Generated client uses [Fetch Api](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) (native browser support) to make requests.
 
 ## Exsamples
-
 
 ### Browser
 

@@ -1,0 +1,44 @@
+{
+  "name": "gitea-js",
+  "version": "0.0.0-semantic-release",
+  "homepage": "https://geprog.com",
+  "repository": "github:geprog/use-feathers",
+  "author": "Anbraten",
+  "license": "MIT",
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    }
+  },
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "/dist"
+  ],
+  "scripts": {
+    "download": "wget https://gitea.com/swagger.v1.json -O ./src/swagger.json",
+    "generate:api": "swagger-typescript-api -p ./src/swagger.json -o ./src -n index.ts",
+    "generate:docs": "typedoc ./src/index.ts",
+    "generate": "pnpm generate:api && pnpm generate:docs",
+    "build": "tsup src/index.ts --dts --format cjs,esm",
+    "all": "pnpm download && pnpm generate && pnpm build",
+    "clean": "rm -rf dist/ node_modules/",
+    "lint:format": "prettier --check .",
+    "typecheck": "tsc --noEmit",
+    "release": "semantic-release"
+  },
+  "dependencies": {
+    "swagger-typescript-api": "9.3.1"
+  },
+  "devDependencies": {
+    "@geprog/semantic-release-config": "1.0.0",
+    "@types/node": "17.0.13",
+    "prettier": "2.5.1",
+    "semantic-release": "19.0.2",
+    "tsup": "5.11.13",
+    "typedoc": "0.22.11",
+    "typescript": "4.5.5"
+  }
+}

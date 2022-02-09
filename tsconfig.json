@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "target": "es2017",
+    "module": "esnext",
+    "lib": ["ESNext", "DOM"],
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "strict": true,
+    "strictNullChecks": true,
+    "strictFunctionTypes": true,
+    "resolveJsonModule": true,
+    "rootDir": ".",
+    "baseUrl": "src",
+    "skipLibCheck": true,
+    "noUnusedLocals": true,
+    "paths": {
+      "~/*": ["./*"],
+      "$/*": ["../test/*"]
+    }
+  },
+  "include": ["src", "test"],
+  "exclude": ["node_modules", "**/dist"]
+}

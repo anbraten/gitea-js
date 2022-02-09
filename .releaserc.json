@@ -1,0 +1,3 @@
+{
+  "extends": "@geprog/semantic-release-config"
+}

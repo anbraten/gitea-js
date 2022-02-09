@@ -1,0 +1,9 @@
+node_modules
+dist/
+docs/
+src/*
+!src/.gitkeep
+coverage/
+junit.xml
+*.tgz
+report.json

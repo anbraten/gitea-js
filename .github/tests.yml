@@ -1,0 +1,135 @@
+name: Tests
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
+
+jobs:
+  # unit-tests:
+  #   name: Unit tests
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Checkout
+  #       uses: actions/checkout@v2
+  #       with:
+  #         fetch-depth: 0
+
+  #     - name: Setup Node.js
+  #       uses: actions/setup-node@v2
+  #       with:
+  #         node-version: '14'
+
+  #     - name: Cache pnpm modules
+  #       uses: actions/cache@v2
+  #       with:
+  #         path: ~/.pnpm-store
+  #         key: ${{ runner.os }}-${{ hashFiles('**/pnpm-lock.yaml') }}
+  #         restore-keys: |
+  #           ${{ runner.os }}-
+
+  #     - uses: pnpm/action-setup@v2.0.1
+  #       with:
+  #         version: 6
+  #         run_install: true
+
+  #     - name: Unit test
+  #       run: pnpm run test
+
+  #     - uses: artiomtr/jest-coverage-report-action@v2.0-rc.1
+  #       if: "github.event_name == 'pull_request'"
+  #       with:
+  #         github-token: ${{ secrets.GITHUB_TOKEN }}
+  #         skip-step: all
+
+  # typecheck:
+  #   name: Typecheck
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Checkout
+  #       uses: actions/checkout@v2
+  #       with:
+  #         fetch-depth: 0
+
+  #     - name: Setup Node.js
+  #       uses: actions/setup-node@v2
+  #       with:
+  #         node-version: '14'
+
+  #     - name: Cache pnpm modules
+  #       uses: actions/cache@v2
+  #       with:
+  #         path: ~/.pnpm-store
+  #         key: ${{ runner.os }}-${{ hashFiles('**/pnpm-lock.yaml') }}
+  #         restore-keys: |
+  #           ${{ runner.os }}-
+
+  #     - uses: pnpm/action-setup@v2.0.1
+  #       with:
+  #         version: 6
+  #         run_install: true
+
+  #     - name: Typecheck
+  #       run: pnpm run typecheck
+
+  # lint:
+  #   name: Lint
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Checkout
+  #       uses: actions/checkout@v2
+  #       with:
+  #         fetch-depth: 0
+
+  #     - name: Setup Node.js
+  #       uses: actions/setup-node@v2
+  #       with:
+  #         node-version: '14'
+
+  #     - name: Cache pnpm modules
+  #       uses: actions/cache@v2
+  #       with:
+  #         path: ~/.pnpm-store
+  #         key: ${{ runner.os }}-${{ hashFiles('**/pnpm-lock.yaml') }}
+  #         restore-keys: |
+  #           ${{ runner.os }}-
+
+  #     - uses: pnpm/action-setup@v2.0.1
+  #       with:
+  #         version: 6
+  #         run_install: true
+
+  #     - name: Lint
+  #       run: pnpm run lint
+
+  check-format:
+    name: Check format
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+
+      - name: Cache pnpm modules
+        uses: actions/cache@v2
+        with:
+          path: ~/.pnpm-store
+          key: ${{ runner.os }}-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-
+
+      - uses: pnpm/action-setup@v2.0.1
+        with:
+          version: 6
+          run_install: true
+
+      - name: Check format
+        run: pnpm run lint:format

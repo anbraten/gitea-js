@@ -1,7 +1,7 @@
 {
   "name": "gitea-js",
   "version": "0.0.0-semantic-release",
-  "homepage": "https://geprog.com",
+  "homepage": "https://anbraten.github.io/gitea-js/",
   "repository": "github:anbraten/gitea-js",
   "author": "Anbraten",
   "license": "MIT",

@@ -2,7 +2,7 @@
   "name": "gitea-js",
   "version": "0.0.0-semantic-release",
   "homepage": "https://geprog.com",
-  "repository": "github:geprog/use-feathers",
+  "repository": "github:anbraten/gitea-js",
   "author": "Anbraten",
   "license": "MIT",
   "exports": {

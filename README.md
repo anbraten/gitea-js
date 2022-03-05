@@ -8,18 +8,17 @@
 
 Gitea-js is an api client created based on the official [swagger definition](https://gitea.com/swagger.v1.json) from Gitea. Generated client uses [Fetch Api](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) (native browser support) to make requests.
 
-## Exsamples
+## Examples
 
 ### Browser
 
 ```ts
 import { Api } from 'gitea-js';
 
-const api = new Api({
-  baseUrl: 'https://try.gitea.com/',
+const api = new giteaApi('https://try.gitea.com/', {
+  token: 'access-token', // generate one at https://gitea.example.com/user/settings/applications
 });
 
-const api = new Api();
 const repo = api.repos.repoGet('anbraten', 'gitea-js');
 console.log(repo);
 ```
@@ -27,14 +26,14 @@ console.log(repo);
 ### Node.js
 
 ```js
-const { Api } = require('gitea-js');
-const fetch = require('node-fetch'); // You have to use node-fetch dependency for Node.JS
+const { createApi } = require('gitea-js');
+const fetch = require('cross-fetch'); // You have to use a fetch compatible polyfill like cross-fetch for Node.JS
 
-const api = new Api({
-  baseUrl: 'https://try.gitea.com/',
+const api = new giteaApi('https://try.gitea.com/', {
+  token: 'access-token', // generate one at https://gitea.example.com/user/settings/applications
+  customFetch: fetch,
 });
 
-const api = new Api({ customFetch: fetch });
 const repo = api.repos.repoGet('anbraten', 'gitea-js');
 console.log(repo);
 ```

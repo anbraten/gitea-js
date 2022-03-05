@@ -8,71 +8,77 @@ on:
       - main
 
 jobs:
-  # unit-tests:
-  #   name: Unit tests
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - name: Checkout
-  #       uses: actions/checkout@v2
-  #       with:
-  #         fetch-depth: 0
+  unit-tests:
+    name: Unit tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
 
-  #     - name: Setup Node.js
-  #       uses: actions/setup-node@v2
-  #       with:
-  #         node-version: '14'
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
 
-  #     - name: Cache pnpm modules
-  #       uses: actions/cache@v2
-  #       with:
-  #         path: ~/.pnpm-store
-  #         key: ${{ runner.os }}-${{ hashFiles('**/pnpm-lock.yaml') }}
-  #         restore-keys: |
-  #           ${{ runner.os }}-
+      - name: Cache pnpm modules
+        uses: actions/cache@v2
+        with:
+          path: ~/.pnpm-store
+          key: ${{ runner.os }}-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-
 
-  #     - uses: pnpm/action-setup@v2.0.1
-  #       with:
-  #         version: 6
-  #         run_install: true
+      - uses: pnpm/action-setup@v2.0.1
+        with:
+          version: 6
+          run_install: true
 
-  #     - name: Unit test
-  #       run: pnpm run test
+      - name: Generate api
+        run: pnpm generate:api
 
-  #     - uses: artiomtr/jest-coverage-report-action@v2.0-rc.1
-  #       if: "github.event_name == 'pull_request'"
-  #       with:
-  #         github-token: ${{ secrets.GITHUB_TOKEN }}
-  #         skip-step: all
+      - name: Unit test
+        run: pnpm coverage
 
-  # typecheck:
-  #   name: Typecheck
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - name: Checkout
-  #       uses: actions/checkout@v2
-  #       with:
-  #         fetch-depth: 0
+      # - uses: artiomtr/jest-coverage-report-action@v2.0-rc.1
+      #   if: "github.event_name == 'pull_request'"
+      #   with:
+      #     github-token: ${{ secrets.GITHUB_TOKEN }}
+      #     skip-step: all
 
-  #     - name: Setup Node.js
-  #       uses: actions/setup-node@v2
-  #       with:
-  #         node-version: '14'
+  typecheck:
+    name: Typecheck
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
 
-  #     - name: Cache pnpm modules
-  #       uses: actions/cache@v2
-  #       with:
-  #         path: ~/.pnpm-store
-  #         key: ${{ runner.os }}-${{ hashFiles('**/pnpm-lock.yaml') }}
-  #         restore-keys: |
-  #           ${{ runner.os }}-
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
 
-  #     - uses: pnpm/action-setup@v2.0.1
-  #       with:
-  #         version: 6
-  #         run_install: true
+      - name: Cache pnpm modules
+        uses: actions/cache@v2
+        with:
+          path: ~/.pnpm-store
+          key: ${{ runner.os }}-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-
 
-  #     - name: Typecheck
-  #       run: pnpm run typecheck
+      - uses: pnpm/action-setup@v2.0.1
+        with:
+          version: 6
+          run_install: true
+
+      - name: Generate api
+        run: pnpm generate:api
+
+      - name: Typecheck
+        run: pnpm typecheck
 
   # lint:
   #   name: Lint

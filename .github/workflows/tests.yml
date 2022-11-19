@@ -41,6 +41,8 @@ jobs:
         run: pnpm generate
 
       - name: Unit test
+        env:
+          TEST_GITEA_TOKEN: ${{ secrets.TEST_GITEA_TOKEN }}
         run: pnpm coverage
 
   typecheck:

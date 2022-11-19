@@ -1,6 +1,7 @@
 import { generateApi } from 'swagger-typescript-api';
 import path from 'path';
 import { exec as _exec } from 'child_process';
+import fs from 'fs';
 
 async function exec(cmd: string) {
   return await new Promise<string>((resolve) => {
@@ -15,14 +16,30 @@ async function exec(cmd: string) {
   });
 }
 
-async function run(_version: string) {
+function getVersions(_version: string) {
   if (!_version) {
     throw new Error('version must be set');
+  }
+
+  if (_version === 'latest') {
+    const newestFile = fs.readdirSync(path.resolve(__dirname, '..', 'src', 'schemas')).sort().pop();
+    const giteaVersion = newestFile?.replace('v', '').replace('.json', '');
+
+    return {
+      version: `${giteaVersion}.0`,
+      giteaVersion,
+    };
   }
 
   const version = _version.replace(/^v/, '');
   const [major, minor] = version.split('.');
   const giteaVersion = `${major}.${minor}`;
+
+  return { version, giteaVersion };
+}
+
+async function run(_version: string) {
+  const { version, giteaVersion } = getVersions(_version);
 
   console.log(`Generating gitea-js version "${version}" for Gitea "${giteaVersion}" ...`);
 

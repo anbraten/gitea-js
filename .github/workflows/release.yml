@@ -10,7 +10,7 @@ jobs:
     name: Release
     runs-on: ubuntu-latest
     env:
-      GITEA_VERSION: ${{ github.ref_name }}
+      VERSION: ${{ github.ref_name }}
     steps:
       - name: Checkout
         uses: actions/checkout@v2

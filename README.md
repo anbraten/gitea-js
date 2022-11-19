@@ -6,7 +6,18 @@
 [![GitHub Workflow Status](https://img.shields.io/github/workflow/status/anbraten/gitea-js/Release)](https://github.com/anbraten/gitea-js/actions)
 [![Docs](https://img.shields.io/badge/Docs-up_to_date-brightgreen)](https://anbraten.github.io/gitea-js/)
 
-Gitea-js is an api client created based on the official [swagger definition](https://gitea.com/swagger.v1.json) from Gitea. Generated client uses [Fetch Api](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) (native browser support) to make requests.
+Gitea-js is an api client automatically created from the official [Open api definition](https://gitea.com/swagger.v1.json) of Gitea. The client uses the [Fetch Api](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) (native browser support) to make requests. For node you can use [cross-fetch](https://www.npmjs.com/package/cross-fetch) to polyfill the Fetch Api.
+
+## Version mapping
+
+The major and minor version of this library is mapped to the version of the Gitea api. The patch version of this library is incremented for every release and uses the latest patch version of Gitea.
+
+| Gitea-js | Gitea      |
+| -------- | ---------- |
+| 1.19.x   | 1.19 (dev) |
+| 1.18.x   | 1.18       |
+| 1.16.x   | 1.17       |
+| < 1.2.0  | 1.17       |
 
 ## Examples
 

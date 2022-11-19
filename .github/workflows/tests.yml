@@ -37,7 +37,7 @@ jobs:
           version: 7
           run_install: true
 
-      - name: Generate
+      - name: Generate client
         run: pnpm generate
 
       - name: Unit test
@@ -72,8 +72,8 @@ jobs:
           version: 7
           run_install: true
 
-      - name: Generate api
-        run: pnpm generate:api
+      - name: Generate client
+        run: pnpm generate
 
       - name: Typecheck
         run: pnpm typecheck

@@ -22,7 +22,10 @@ function getVersions(_version: string) {
   }
 
   if (_version === 'latest') {
-    const newestFile = fs.readdirSync(path.resolve(__dirname, '..', 'src', 'schemas')).sort().pop();
+    const newestFile = fs
+      .readdirSync(path.resolve(__dirname, '..', 'src', 'schemas'))
+      .sort()
+      .pop();
     const giteaVersion = newestFile?.replace('v', '').replace('.json', '');
 
     return {

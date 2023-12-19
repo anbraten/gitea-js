@@ -28,7 +28,7 @@ The major and minor version of this library is mapped to the version of the Gite
 ```ts
 import { giteaApi } from 'gitea-js';
 
-const api = new giteaApi('https://try.gitea.com/', {
+const api = giteaApi('https://try.gitea.com/', {
   token: 'access-token', // generate one at https://gitea.example.com/user/settings/applications
 });
 
@@ -42,7 +42,7 @@ console.log(repo);
 const { giteaApi } = require('gitea-js');
 const fetch = require('cross-fetch'); // You have to use a fetch compatible polyfill like cross-fetch for Node.JS
 
-const api = new giteaApi('https://try.gitea.com/', {
+const api = giteaApi('https://try.gitea.com/', {
   token: 'access-token', // generate one at https://gitea.example.com/user/settings/applications
   customFetch: fetch,
 });

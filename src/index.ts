@@ -18,7 +18,7 @@ export function giteaApi<SecurityDataType = unknown>(
       return {
         secure: true,
         headers: {
-          Authorization: `token ${options.token}`,
+          Authorization: `Bearer ${options.token}`,
         },
       };
     },

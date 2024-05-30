@@ -12,14 +12,15 @@ Gitea-js is an api client automatically created from the official [Open api defi
 
 The major and minor version of this library is mapped to the version of the Gitea api. The patch version of this library is incremented for every release and uses the latest patch version of Gitea.
 
-| Gitea-js | Gitea      |
-| -------- | ---------- |
-| 1.21.x   | 1.21 (dev) |
-| 1.20.x   | 1.20       |
-| 1.19.x   | 1.19       |
-| 1.18.x   | 1.18       |
-| 1.16.x   | 1.17       |
-| < 1.2.0  | 1.17       |
+| Gitea-js | Gitea |
+| -------- | ----- |
+| 1.22.x   | 1.22  |
+| 1.21.x   | 1.21  |
+| 1.20.x   | 1.20  |
+| 1.19.x   | 1.19  |
+| 1.18.x   | 1.18  |
+| 1.16.x   | 1.17  |
+| < 1.2.0  | 1.17  |
 
 ## Examples
 

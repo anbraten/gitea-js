@@ -4919,13 +4919,7 @@
             "required": true
           },
           {
-            "enum": [
-              "oldest",
-              "recentupdate",
-              "leastupdate",
-              "leastindex",
-              "highestindex"
-            ],
+            "enum": ["oldest", "recentupdate", "leastupdate", "leastindex", "highestindex"],
             "type": "string",
             "description": "type of sort",
             "name": "sort",
@@ -10275,14 +10269,7 @@
             "in": "query"
           },
           {
-            "enum": [
-              "oldest",
-              "recentupdate",
-              "leastupdate",
-              "mostcomment",
-              "leastcomment",
-              "priority"
-            ],
+            "enum": ["oldest", "recentupdate", "leastupdate", "mostcomment", "leastcomment", "priority"],
             "type": "string",
             "description": "Type of sort",
             "name": "sort",
@@ -12449,13 +12436,7 @@
             "required": true
           },
           {
-            "enum": [
-              "oldest",
-              "recentupdate",
-              "leastupdate",
-              "leastindex",
-              "highestindex"
-            ],
+            "enum": ["oldest", "recentupdate", "leastupdate", "leastindex", "highestindex"],
             "type": "string",
             "description": "type of sort",
             "name": "sort",
@@ -18548,12 +18529,7 @@
         "trust_model": {
           "description": "TrustModel of the repository",
           "type": "string",
-          "enum": [
-            "default",
-            "collaborator",
-            "committer",
-            "collaboratorcommitter"
-          ],
+          "enum": ["default", "collaborator", "committer", "collaboratorcommitter"],
           "x-go-name": "TrustModel"
         }
       },
@@ -20881,14 +20857,7 @@
       "properties": {
         "Do": {
           "type": "string",
-          "enum": [
-            "merge",
-            "rebase",
-            "rebase-merge",
-            "squash",
-            "fast-forward-only",
-            "manually-merged"
-          ]
+          "enum": ["merge", "rebase", "rebase-merge", "squash", "fast-forward-only", "manually-merged"]
         },
         "MergeCommitID": {
           "type": "string"
@@ -21023,16 +20992,7 @@
         },
         "service": {
           "type": "string",
-          "enum": [
-            "git",
-            "github",
-            "gitea",
-            "gitlab",
-            "gogs",
-            "onedev",
-            "gitbucket",
-            "codebase"
-          ],
+          "enum": ["git", "github", "gitea", "gitlab", "gogs", "onedev", "gitbucket", "codebase"],
           "x-go-name": "Service"
         },
         "uid": {
